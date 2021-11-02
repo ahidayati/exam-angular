@@ -7,14 +7,14 @@
           <h5 class="card-title">{{games.name}}</h5>
           <p class="card-text">Price: {{games.price}}€</p>
 <!--          <p class="card-text">Published: {{games.publishedAt}}</p>-->
-<!--          Will format the date if I have time-->
-          <a routerLink="/games-detail" class="btn btn-primary">More Detail</a>
+<!--          Will format the date with pipe if I have time-->
+          <a routerLink="/games-detail/{{games.id}}" class="btn btn-primary">More Detail</a>
         </div>
       </div>
     </div>
   </div>
 
-<!--  Haven't finished the pagination yet-->
+<!--  Haven't figured out the pagination yet-->
   <pagination-controls
     (pageChange)="page=$event; arrayGames=[]"
     class="text-center text-white">

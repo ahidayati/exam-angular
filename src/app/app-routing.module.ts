@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'', component: StoreComponent},
   {path:'account-index', component: AccountIndexComponent},
   {path:'account-form', component: AccountFormComponent},
-  {path:'games-detail', component: StoreDetailComponent},
+  {path:'games-detail/:gamesId', component: StoreDetailComponent},
 ];
 
 @NgModule({

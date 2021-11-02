@@ -31,7 +31,7 @@ export class StoreComponent implements OnInit {
   }
 
   //pagination doesn't work whyyyyyyyyy
-  //not enough time bye pagination
+  //not enough time to self-teach during exam, bye pagination
   nextPage(){
     this.gamesListService.getGamesList().subscribe((data: any) =>{
       console.log(data);

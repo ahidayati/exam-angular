@@ -1,2 +1,28 @@
-<p>This page is in maintenance!</p>
+<p>This page is under maintenance!</p>
 <!--because I'm not finished yet-->
+
+<div *ngIf="gamesEach"
+     class="row">
+  <div class="col-6">
+    <img class="col-6" src="{{gamesEach.thumbnailLogo}}" alt="{{gamesEach.name}}-logo">
+    <img class="col-6" src="{{gamesEach.thumbnailCover}}" alt="{{gamesEach.name}}-cover">
+  </div>
+  <div class="col-6">
+    <p class="text-capitalize fs-1 fw-bold">
+      {{gamesEach.name}}</p>
+    <table class="table text-white">
+      <tr>
+        <th>Price</th>
+        <td>{{gamesEach.price}}€</td>
+      </tr>
+      <tr>
+        <th>Published Date</th>
+        <td>{{gamesEach.publishedAt}}</td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</div>
+
