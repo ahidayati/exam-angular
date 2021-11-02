@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let games of arrayGames | paginate: {itemsPerPage: 30, currentPage:page, totalItems:totalGames }" class="col-sm-4 col-lg-2 gy-5 d-flex justify-content-around">
+      <div class="card" style="width: 18rem;">
+        <img src="{{games.thumbnailCover}}" class="card-img-top" alt="{{games.name}}-image">
+        <div class="card-body">
+          <h5 class="card-title">{{games.name}}</h5>
+          <p class="card-text">Price: {{games.price}}€</p>
+<!--          <p class="card-text">Published: {{games.publishedAt}}</p>-->
+<!--          Will format the date if I have time-->
+          <a routerLink="/games-detail" class="btn btn-primary">More Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--  Haven't finished the pagination yet-->
+  <pagination-controls
+    (pageChange)="page=$event; arrayGames=[]"
+    class="text-center text-white">
+  </pagination-controls>
+
+</div>
+
+
+

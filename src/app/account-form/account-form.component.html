@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div>
+
+      <form (ngSubmit)="onSubmit()" #formUser="ngForm">
+        <div class="input-group">
+          <div class="col-6 my-2">
+            <input  [(ngModel)]="user.nickname"
+                    [name]="'nickname'"
+                    #inputUserNickname="ngModel"
+                    [class.is-invalid]="inputUserNickname.touched && inputUserNickname.invalid"
+                    type="text"
+                    class="form-control"
+                    placeholder="Nickname"
+                    required
+                    minlength="{{minLength}}"
+            >
+          </div>
+          <div *ngIf="inputUserNickname.invalid && (inputUserNickname.dirty || inputUserNickname.touched)"
+               class="alert-danger col-6"
+          >
+            <div *ngIf="inputUserNickname.errors?.required">
+              Nickname is required.
+            </div>
+            <div *ngIf="inputUserNickname.errors?.minlength">
+              Nickname must have at least {{minLength}} characters.
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="col-6 my-2">
+            <input  [(ngModel)]="user.email"
+                    [name]="'email'"
+                    #inputUserEmail="ngModel"
+                    [class.is-invalid]="inputUserEmail.touched && inputUserEmail.invalid"
+                    type="text"
+                    class="form-control"
+                    placeholder="Email"
+                    required
+                    pattern=".+@[\w\W]*"
+            >
+          </div>
+
+          <div *ngIf="inputUserEmail.invalid && (inputUserEmail.dirty || inputUserEmail.touched)"
+               class="alert-danger col-6"
+          >
+            <div *ngIf="inputUserEmail.errors?.required">
+              Email is required.
+            </div>
+            <div *ngIf="inputUserEmail.errors?.pattern">
+              It's not a valid email address.
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="col-6 my-2">
+            <input  [(ngModel)]="user.name"
+                    [name]="'name'"
+                    #inputUserName="ngModel"
+                    type="text"
+                    class="form-control"
+                    placeholder="Name"
+            >
+          </div>
+        </div>
+
+
+        <div class="col-6 my-2">
+          <button class="btn btn-secondary" type="submit" [disabled]="formUser.invalid">
+            Create User Account
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

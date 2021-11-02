@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table table-striped bg-primary bg-gradient text-white">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Nickname</th>
+      <th>Wallet</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of arrayUserAccount"
+
+        class="hover-color">
+      <td>{{data.name}}</td>
+      <td>{{data.nickname}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.wallet}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-primary" routerLink="/form-user">Create Account</button>
+
+  <pagination-controls
+    (pageChange)="page=$event; arrayUserAccount=[]"
+    class="text-center text-white">
+
+  </pagination-controls>
+
+</div>
